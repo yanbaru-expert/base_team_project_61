@@ -1,5 +1,9 @@
 class TasksController < ApplicationController
 
+  def index
+    @tasks = Task.all
+  end
+
   def new
     @task = Task.new
   end
@@ -11,6 +15,5 @@ class TasksController < ApplicationController
   private
     def user_params
       params.require(:task).permit(:title, :contents)
-
     end
 end
