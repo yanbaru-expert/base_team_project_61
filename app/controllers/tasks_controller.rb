@@ -16,6 +16,15 @@ class TasksController < ApplicationController
     Task.create(user_params)
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    task = Task.find(params[:id])
+    task.update(user_params)
+  end
+
   private
     def user_params
       params.require(:task).permit(:title, :contents)
